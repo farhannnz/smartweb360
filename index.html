@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMARTWEB 360 — Live E-Commerce Workshop | Sourcing to Selling</title>
+<meta name="description" content="How we did ₹5 Crore in sales in 1 year — shown live on our real website and dashboards. A 3-hour E-Commerce Workshop, online & offline. Enroll for ₹199 and get a free premium AI Blue-Cut frame from Optykart.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;--ink-2:#121212;--ink-3:#1a1a1a;--ink-4:#232323;
+  --line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);
+  --gold:#c9a45a;--gold-bright:#e8c873;--gold-deep:#8a6a2f;
+  --text-hi:#f5f4f0;--text-mid:#b6b4ae;--text-lo:#7c7a74;
+  --paper:#f0efe9;--on-paper:#141311;--on-paper-mid:#57554d;
+  --grad-gold:linear-gradient(135deg,#8a6a2f 0%,#e8c873 45%,#c9a45a 70%,#8a6a2f 100%);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--ink);color:var(--text-hi);font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+body.lock{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;margin:0;text-wrap:balance;line-height:1.08}
+p{margin:0}
+ul{list-style:none;margin:0;padding:0}
+button,input,select{font-family:inherit}
+:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(18px,5vw,48px)}
+section{position:relative;padding-block:clamp(64px,9vw,120px)}
+h1 em,h2 em,h3 em{font-style:italic;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.05em}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--text-mid);font-weight:500;display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.lede{color:var(--text-mid);font-weight:300;font-size:clamp(15px,1.5vw,17px);line-height:1.75;max-width:620px}
+.sec-head{margin-bottom:clamp(36px,5vw,60px)}
+.sec-head h2{font-size:clamp(30px,4.6vw,52px);max-width:820px}
+.sec-head .lede{margin-top:18px}
+.center{text-align:center}.center .eyebrow{justify-content:center}.center .eyebrow::after{content:"";width:28px;height:1px;background:var(--gold)}.center h2,.center .lede{margin-inline:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s;white-space:nowrap;text-align:center}
+.btn-gold{background:var(--grad-gold);background-size:200% 100%;color:#120e05;box-shadow:0 12px 34px -12px rgba(232,200,115,.55)}
+.btn-gold:hover{transform:translateY(-2px);background-position:100% 0;box-shadow:0 18px 40px -12px rgba(232,200,115,.7)}
+.btn-line{border-color:var(--line);color:var(--text-hi);background:transparent}
+.btn-line:hover{border-color:var(--gold);color:var(--gold-bright)}
+.btn svg{width:16px;height:16px}
+@media(max-width:520px){.btn{white-space:normal;line-height:1.35;padding-inline:20px}nav.top .btn,.sticky .btn{white-space:nowrap}}
+
+/* progress + grain */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad-gold);z-index:100}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.04;mix-blend-mode:overlay;z-index:2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* announcement + nav */
+.announce{background:var(--grad-gold);color:#120e05;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-align:center;padding:9px 16px}
+.announce b{font-weight:700}
+nav.top{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{font-family:'Bodoni Moda',serif;font-weight:700;font-size:21px;letter-spacing:.12em;white-space:nowrap}
+.brand-mark span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-sub{font-size:10px;letter-spacing:.3em;color:var(--text-lo);text-transform:uppercase;display:block;margin-top:2px}
+@media(max-width:420px){.brand-mark{font-size:17px;letter-spacing:.08em}.brand-sub{font-size:8.5px}nav.top .btn{padding:10px 14px}}
+.nav-links{display:flex;gap:30px;font-size:13px;letter-spacing:.06em;color:var(--text-mid)}
+.nav-links a:hover{color:var(--gold-bright)}
+nav.top .btn{padding:11px 20px;font-size:11.5px}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding-top:clamp(44px,7vw,90px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(closest-side,rgba(201,164,90,.2),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(30px,5vw,70px);align-items:center;position:relative}
+@media(max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,164,90,.45);background:rgba(201,164,90,.08);padding:8px 16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:26px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 0 0 rgba(255,77,77,.7);animation:pulse 1.6s infinite;flex:none}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
+.hero h1{font-size:clamp(38px,6.2vw,74px);letter-spacing:-.01em}
+.hero h1 .big{display:block;font-size:1.18em}
+.hero .lede{margin-top:26px;font-size:clamp(16px,1.7vw,19px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;font-size:13px;color:var(--text-mid)}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust svg{width:15px;height:15px;stroke:var(--gold);flex:none}
+
+/* ticket */
+.ticket{position:relative;background:linear-gradient(160deg,var(--ink-4),var(--ink-2));border:1px solid rgba(201,164,90,.4);padding:30px clamp(22px,3vw,34px);box-shadow:0 40px 80px -40px rgba(0,0,0,.9),0 0 0 6px rgba(201,164,90,.05)}
+.ticket-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.ticket-top .t{font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.ticket h3{font-size:clamp(24px,2.6vw,32px);margin-bottom:6px}
+.ticket .sub{color:var(--text-mid);font-size:14px;font-weight:300}
+.tk-rows{margin:24px 0 28px;border-top:1px dashed var(--line);padding-top:22px;display:grid;gap:16px}
+.tk-row{display:flex;justify-content:space-between;gap:14px;font-size:14px}
+.tk-row span{color:var(--text-lo);letter-spacing:.08em;text-transform:uppercase;font-size:11.5px}
+.tk-row b{font-weight:500;text-align:right}
+.tk-row b.price{color:var(--gold-bright);font-family:'Bodoni Moda',serif;font-size:20px;font-weight:600}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-top:1px dashed var(--line);padding-top:24px;margin-bottom:22px}
+.count div{text-align:center;background:rgba(255,255,255,.04);border:1px solid var(--line-soft);padding:12px 4px}
+.count b{display:block;font-family:'Bodoni Moda',serif;font-size:28px;font-weight:600;color:var(--gold-bright);line-height:1}
+.count small{font-size:10px;letter-spacing:.2em;color:var(--text-lo);text-transform:uppercase}
+.ticket .btn{width:100%}
+.ticket .gift-strip{margin-top:16px;text-align:center;font-size:12.5px;color:var(--gold-bright)}
+
+/* ticker */
+.ticker{border-block:1px solid var(--line-soft);background:var(--ink-2);overflow:hidden;padding:0}
+.ticker-track{display:flex;gap:48px;width:max-content;padding:18px 0;animation:tick 32s linear infinite;font-family:'Bodoni Moda',serif;font-size:19px;color:var(--text-mid)}
+.ticker-track span{display:inline-flex;align-items:center;gap:48px;white-space:nowrap}
+.ticker-track span::after{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* proof */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+@media(max-width:780px){.proof-grid{grid-template-columns:1fr}}
+.proof{background:var(--ink);padding:clamp(28px,4vw,46px)}
+.proof .num{font-family:'Bodoni Moda',serif;font-size:clamp(44px,6vw,72px);font-weight:600;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.proof h3{font-size:22px;margin:16px 0 10px}
+.proof p{color:var(--text-mid);font-weight:300;font-size:15px;line-height:1.7}
+.live-note{margin-top:34px;border-left:2px solid var(--gold);padding:6px 0 6px 22px;max-width:760px}
+.live-note p{color:var(--text-mid);font-weight:300;line-height:1.75}
+.live-note b{color:var(--text-hi);font-weight:500}
+
+/* roadmap */
+.roadmap{background:var(--ink-2);border-block:1px solid var(--line-soft)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+@media(max-width:980px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{position:relative;background:var(--ink-3);border:1px solid var(--line-soft);padding:28px 24px 30px;counter-increment:s;transition:border-color .3s,transform .3s}
+.step:hover{border-color:rgba(201,164,90,.55);transform:translateY(-4px)}
+.step::before{content:"0" counter(s);font-family:'Bodoni Moda',serif;font-size:44px;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:18px}
+.step h3{font-size:20px;margin-bottom:10px}
+.step p{font-size:14.5px;color:var(--text-mid);font-weight:300;line-height:1.7}
+.road-end{margin-top:26px;text-align:center;font-family:'Bodoni Moda',serif;font-style:italic;font-size:clamp(18px,2.4vw,26px);color:var(--gold-bright)}
+
+/* live show */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+@media(max-width:900px){.split{grid-template-columns:minmax(0,1fr)}}
+.checks li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line-soft);color:var(--text-hi);font-size:16px;font-weight:300}
+.checks li:first-child{border-top:1px solid var(--line-soft)}
+.checks svg{width:20px;height:20px;stroke:var(--gold-bright);flex:none;margin-top:2px}
+.browser{background:var(--ink-3);border:1px solid var(--line);box-shadow:0 40px 80px -40px #000}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line-soft);background:var(--ink-4)}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#3a3a3a}
+.browser-bar .url{margin-left:12px;flex:1;background:var(--ink);border:1px solid var(--line-soft);padding:5px 12px;font-size:11.5px;color:var(--text-lo);letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser-body{padding:22px}
+.dash-title{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-lo);margin-bottom:16px}
+.dash-title b{color:#57d38c;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.dash-title b::before{content:"";width:6px;height:6px;border-radius:50%;background:#57d38c}
+.dash-hero{font-family:'Bodoni Moda',serif;font-size:clamp(40px,5vw,58px);line-height:1;color:var(--text-hi)}
+.dash-hero small{display:block;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.2em;color:var(--text-lo);text-transform:uppercase;margin-top:8px}
+.bars{display:flex;align-items:flex-end;gap:7px;height:130px;margin:26px 0 8px;border-bottom:1px solid var(--line-soft)}
+.bars i{flex:1;background:linear-gradient(180deg,var(--gold-bright),var(--gold-deep));opacity:.9;transform-origin:bottom;transform:scaleY(0);transition:transform 1s cubic-bezier(.22,.61,.36,1)}
+.in .bars i{transform:scaleY(1)}
+.bars-cap{display:flex;justify-content:space-between;font-size:10.5px;color:var(--text-lo);letter-spacing:.14em;text-transform:uppercase}
+.browser-note{padding:12px 22px 16px;font-size:11.5px;color:var(--text-lo);border-top:1px solid var(--line-soft);font-style:italic}
+
+/* who */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:980px){.who-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.who-grid{grid-template-columns:1fr}}
+.who{border:1px solid var(--line-soft);padding:26px 22px;background:linear-gradient(180deg,var(--ink-2),var(--ink))}
+.who svg{width:30px;height:30px;stroke:var(--gold);margin-bottom:18px}
+.who h3{font-size:19px;margin-bottom:8px}
+.who p{font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.65}
+
+/* gift */
+.gift{background:radial-gradient(80% 90% at 80% 50%,rgba(201,164,90,.16),transparent 70%),var(--ink-2);border-block:1px solid var(--line-soft);overflow:hidden}
+.gift-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,6vw,80px);align-items:center}
+@media(max-width:900px){.gift-grid{grid-template-columns:minmax(0,1fr)}}
+.gift-img{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;margin-inline:auto}
+.gift-img img{width:100%;height:100%;object-fit:cover;border:1px solid rgba(201,164,90,.4)}
+.gift-img::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid rgba(201,164,90,.35);z-index:-1}
+.gift-badge{position:absolute;right:-18px;top:-18px;width:112px;height:112px;border-radius:50%;background:var(--grad-gold);color:#120e05;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:600;box-shadow:0 14px 34px -10px rgba(232,200,115,.6);transform:rotate(12deg);animation:float 4s ease-in-out infinite}
+.gift-badge small{font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.gift-badge b{font-family:'Bodoni Moda',serif;font-size:30px;line-height:1}
+@media(max-width:520px){.gift-badge{right:-6px;top:-14px;width:96px;height:96px}}
+@keyframes float{50%{transform:rotate(12deg) translateY(-8px)}}
+.gift h2{font-size:clamp(30px,4.4vw,52px)}
+.gift ul{margin:26px 0 32px;display:grid;gap:12px}
+.gift li{display:flex;gap:12px;color:var(--text-mid);font-weight:300;font-size:15.5px}
+.gift li::before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg);margin-top:9px;flex:none}
+.gift small.fine{display:block;margin-top:14px;font-size:12px;color:var(--text-lo)}
+
+/* sponsor */
+.sponsor-card{display:grid;grid-template-columns:1fr 1.15fr;border:1px solid rgba(201,164,90,.4);background:var(--ink-2);overflow:hidden}
+@media(max-width:900px){.sponsor-card{grid-template-columns:minmax(0,1fr)}}
+.sp-visual{position:relative;min-height:380px;background:#000 url(assets/visit-store.jpg) center/cover}
+.sp-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.15),rgba(18,18,18,.95))}
+@media(max-width:900px){.sp-visual::after{background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(18,18,18,.95))}}
+.sp-logo{position:absolute;left:28px;bottom:28px;z-index:2;display:flex;align-items:center;gap:16px}
+.sp-logo img{width:76px;height:auto}
+.sp-logo b{font-family:'Bodoni Moda',serif;font-size:26px;letter-spacing:.1em;display:block}
+.sp-logo span{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.sp-body{padding:clamp(28px,4vw,52px)}
+.sp-body h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:16px}
+.sp-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0}
+.sp-cats figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line-soft)}
+.sp-cats img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.sp-cats figure:hover img{transform:scale(1.08)}
+.sp-cats figcaption{position:absolute;inset:auto 0 0 0;padding:16px 4px 8px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.sp-facts{display:grid;gap:10px;font-size:14px;color:var(--text-mid);margin-bottom:26px}
+.sp-facts span{display:flex;gap:10px;align-items:flex-start}
+.sp-facts svg{width:16px;height:16px;stroke:var(--gold);flex:none;margin-top:3px}
+.sp-tag{position:absolute;top:22px;left:24px;z-index:2;background:var(--grad-gold);color:#120e05;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:7px 14px}
+
+/* format */
+.format-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:900px;margin-inline:auto}
+@media(max-width:700px){.format-grid{grid-template-columns:1fr}}
+.fmt{border:1px solid var(--line);padding:34px 30px;background:var(--ink-2);text-align:center;transition:border-color .3s}
+.fmt:hover{border-color:var(--gold)}
+.fmt svg{width:38px;height:38px;stroke:var(--gold-bright);margin-bottom:18px}
+.fmt h3{font-size:26px;margin-bottom:10px}
+.fmt p{color:var(--text-mid);font-weight:300;font-size:15px}
+
+/* register (price) */
+.register{background:var(--paper);color:var(--on-paper)}
+.register .eyebrow{color:var(--on-paper-mid)}
+.register .lede{color:var(--on-paper-mid)}
+.register h2 em{background:linear-gradient(135deg,#6b4f1c,#b58a3a);-webkit-background-clip:text;background-clip:text}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+@media(max-width:900px){.reg-grid{grid-template-columns:minmax(0,1fr)}}
+.reg-grid h2{font-size:clamp(30px,4.4vw,52px)}
+.steps-mini{margin-top:30px;display:grid;gap:14px;counter-reset:m}
+.steps-mini li{display:flex;gap:14px;font-size:15.5px;align-items:flex-start;counter-increment:m}
+.steps-mini li::before{content:counter(m);flex:none;width:26px;height:26px;border-radius:50%;background:var(--on-paper);color:var(--gold-bright);display:grid;place-items:center;font-size:13px;font-weight:600}
+.price-card{background:#fff;border:1px solid rgba(20,19,17,.12);padding:clamp(28px,3.6vw,44px);box-shadow:0 30px 60px -34px rgba(20,19,17,.35);text-align:center}
+.price-card .lbl{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--on-paper-mid)}
+.price-card .amt{font-family:'Bodoni Moda',serif;font-size:clamp(64px,9vw,96px);line-height:1;margin:14px 0 6px;color:var(--on-paper)}
+.price-card .amt small{font-size:.32em;vertical-align:top;margin-right:4px;color:#8a6a2f}
+.price-card .sub{color:var(--on-paper-mid);font-size:14px;margin-bottom:24px}
+.price-card ul{text-align:left;border-top:1px dashed rgba(20,19,17,.2);padding-top:20px;margin-bottom:26px;display:grid;gap:12px;font-size:15px}
+.price-card li{display:flex;gap:10px}
+.price-card li svg{width:18px;height:18px;stroke:#8a6a2f;flex:none;margin-top:2px}
+.price-card .btn{width:100%;padding:18px}
+
+/* faq */
+.faq{max-width:820px;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line-soft)}
+.faq details:first-child{border-top:1px solid var(--line-soft)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;font-family:'Bodoni Moda',serif;font-size:clamp(18px,2.2vw,22px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:'Jost';font-size:26px;color:var(--gold);transition:transform .3s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--text-mid);font-weight:300;line-height:1.75;max-width:680px}
+
+/* final cta + footer */
+.final{text-align:center;background:radial-gradient(60% 80% at 50% 100%,rgba(201,164,90,.2),transparent 70%)}
+.final h2{font-size:clamp(32px,5.4vw,64px);max-width:900px;margin-inline:auto}
+.final .lede{margin:22px auto 34px}
+footer{border-top:1px solid var(--line-soft);padding:44px 0 90px;font-size:13px;color:var(--text-lo)}
+.foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.foot .presented{display:flex;align-items:center;gap:12px;color:var(--text-mid)}
+.foot .presented img{width:34px}
+
+/* sticky mobile cta */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(10,10,10,.94);backdrop-filter:blur(12px);border-top:1px solid rgba(201,164,90,.4);gap:12px;align-items:center;transform:translateY(110%);transition:transform .35s}
+.sticky.show{transform:none}
+.sticky div{flex:1;font-size:12px;line-height:1.3;color:var(--text-mid)}
+.sticky div b{display:block;color:var(--gold-bright);font-weight:500;font-size:13px}
+.sticky .btn{padding:14px 20px;font-size:12px}
+@media(max-width:760px){.sticky{display:flex}}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-y:auto}
+.modal.open{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.dialog{position:relative;width:100%;max-width:480px;max-height:calc(100dvh - 32px);overflow-y:auto;background:linear-gradient(170deg,var(--ink-4),var(--ink-2));border:1px solid rgba(201,164,90,.45);padding:clamp(24px,4vw,38px);box-shadow:0 40px 90px -30px #000;animation:rise .35s cubic-bezier(.22,.61,.36,1)}
+@keyframes rise{from{transform:translateY(24px);opacity:0}}
+.dialog .x{position:absolute;top:12px;right:12px;width:38px;height:38px;border:1px solid var(--line);background:transparent;color:var(--text-mid);cursor:pointer;font-size:22px;line-height:1;display:grid;place-items:center}
+.dialog .x:hover{color:var(--gold-bright);border-color:var(--gold)}
+.m-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-right:40px}
+.m-head img{width:34px}
+.m-head span{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.dialog h3{font-size:clamp(24px,3.2vw,30px);margin-bottom:6px}
+.dialog .sub{color:var(--text-mid);font-size:14px;font-weight:300;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mid);margin-bottom:7px;font-weight:500}
+.field input{width:100%;padding:14px 16px;font-size:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text-hi);border-radius:0}
+.field input::placeholder{color:var(--text-lo)}
+.field input:focus{outline:2px solid var(--gold);border-color:var(--gold);background:rgba(255,255,255,.07)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode>div{position:relative}
+.field .mode input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;padding:0;border:0}
+.mode label{margin:0;padding:14px;text-align:center;border:1px solid var(--line);cursor:pointer;letter-spacing:.1em;font-size:12.5px;color:var(--text-mid)}
+.mode input:checked+label{background:var(--grad-gold);color:#120e05;border-color:transparent;font-weight:600}
+.mode input:focus-visible+label{outline:2px solid var(--gold-bright);outline-offset:2px}
+.err{color:#ff8a80;font-size:12.5px;margin-top:6px;display:none}
+.field.bad .err{display:block}.field.bad input{border-color:#ff8a80}
+.dialog form .btn{width:100%;margin-top:6px;padding:18px}
+.m-fee{margin-top:14px;text-align:center;font-size:13px;color:var(--gold-bright)}
+.pay{display:none}
+.pay.show{display:block}
+.pay-amount{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(201,164,90,.4);background:rgba(201,164,90,.08);padding:14px 18px;margin-bottom:18px}
+.pay-amount span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid)}
+.pay-amount b{font-family:'Bodoni Moda',serif;font-size:32px;color:var(--gold-bright)}
+.qr{background:#f2f5fd;padding:10px;margin:0 auto 16px;max-width:290px;border-radius:10px}
+.qr img{width:100%;height:auto;border-radius:6px}
+.upi-id{text-align:center;font-size:13px;color:var(--text-mid);margin-bottom:18px}
+.upi-id b{color:var(--text-hi);font-weight:500;user-select:all}
+.note{border-left:2px solid var(--gold);background:rgba(255,255,255,.04);padding:14px 16px;font-size:14.5px;line-height:1.65;color:var(--text-hi);margin-bottom:18px}
+.note b{color:var(--gold-bright);font-weight:600}
+.pay .btn{width:100%;margin-top:10px;padding:16px}
+.pay .btn-upi{display:none}
+@media(max-width:760px){.pay .btn-upi{display:inline-flex}}
+.pay .small{margin-top:14px;text-align:center;font-size:12px;color:var(--text-lo)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="grain"></div>
+
+<div class="announce">🔴 <b>LIVE WORKSHOP</b> · Sunday, 27 September · Online &amp; Offline · Enroll &amp; get a <b>FREE premium AI Blue-Cut frame</b> from Optykart</div>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="SMARTWEB 360">
+      <div><div class="brand-mark">SMARTWEB <span>360</span></div><span class="brand-sub">E-Commerce Academy</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#proof">Results</a><a href="#roadmap">What you'll learn</a><a href="#gift">Free Gift</a><a href="#sponsor">Sponsor</a><a href="#faq">FAQ</a>
+    </div>
+    <a href="#enroll" class="btn btn-gold" data-enroll>Enroll Now</a>
+  </div>
+</nav>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill rv"><i></i> Live Workshop · 3 Hours · Online &amp; Offline</div>
+      <h1 class="rv d1"><span class="big">₹5 Crore</span> in sales — in just <em>1 year.</em> Now learn the entire <em>system.</em></h1>
+      <p class="lede rv d2">No fake hype. No script. We'll show you our <b style="color:var(--text-hi);font-weight:500">live website and real dashboards</b> — every single step from product sourcing to the final sale, taught from zero.</p>
+      <div class="hero-cta rv d3">
+        <a href="#enroll" class="btn btn-gold" data-enroll>Book My Seat — ₹199
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#roadmap" class="btn btn-line">See what you'll learn</a>
+      </div>
+      <div class="trust rv d3">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Start from zero</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Live website &amp; dashboards</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Free Optykart frame</span>
+      </div>
+    </div>
+
+    <aside class="ticket rv d2" aria-label="Workshop details">
+      <div class="ticket-top"><span class="t">Live Workshop Pass</span><img src="assets/logo.png" alt="Optykart" width="34" height="37"></div>
+      <h3>E-Commerce Business Workshop</h3>
+      <p class="sub">Sourcing to Selling — start to finish</p>
+      <div class="tk-rows">
+        <div class="tk-row"><span>Date</span><b>Sunday, 27 Sept 2026</b></div>
+        <div class="tk-row"><span>Duration</span><b>3 Hours · Live</b></div>
+        <div class="tk-row"><span>Mode</span><b>Online &amp; Offline</b></div>
+        <div class="tk-row"><span>Bonus</span><b>AI Blue-Cut Frame</b></div>
+        <div class="tk-row"><span>Enrollment</span><b class="price">₹199</b></div>
+      </div>
+      <div class="count" id="count" aria-label="Time left until the workshop">
+        <div><b id="cd">00</b><small>Days</small></div><div><b id="ch">00</b><small>Hours</small></div><div><b id="cm">00</b><small>Min</small></div><div><b id="cs">00</b><small>Sec</small></div>
+      </div>
+      <a href="#enroll" class="btn btn-gold" data-enroll>Enroll Now</a>
+      <p class="gift-strip">🎁 Free premium Blue-Cut frame with every enrollment</p>
+    </aside>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Real results</div>
+      <h2>No talk. We show the <em>numbers.</em></h2>
+    </div>
+    <div class="proof-grid rv">
+      <div class="proof"><div class="num">₹5 Cr</div><h3>In sales</h3><p>One business, one year, over ₹5 Crore in e-commerce sales. This workshop is the exact system behind it.</p></div>
+      <div class="proof"><div class="num">1 Year</div><h3>Ground to top</h3><p>Sourcing, branding, store, ads and delivery — everything built within a single year.</p></div>
+      <div class="proof"><div class="num">0 Hype</div><h3>Only execution</h3><p>No scripted pitch. Whatever we did, we'll show live on screen.</p></div>
+    </div>
+    <div class="live-note rv">
+      <p><b>"Want to see how we actually did it?"</b> In the workshop we'll open our live website, dashboards and real order flow on screen — so you can see it for yourself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="eyebrow">Roadmap</div>
+      <h2>From <em>sourcing</em> to selling — every step, from zero.</h2>
+      <p class="lede">The complete e-commerce business system in 3 hours, in simple language with live examples.</p>
+    </div>
+    <div class="steps">
+      <article class="step rv"><h3>Product Research</h3><p>Which products sell, how to find them, and how to confirm there's real market demand.</p></article>
+      <article class="step rv d1"><h3>Sourcing</h3><p>Where to find the right suppliers, how to fix your rates and protect quality and margin.</p></article>
+      <article class="step rv d2"><h3>Brand &amp; Packaging</h3><p>Turn a simple product into a premium brand — logo, packaging and unboxing experience.</p></article>
+      <article class="step rv d3"><h3>Website &amp; Store Setup</h3><p>How an online store is built from scratch — with a walkthrough of our live website.</p></article>
+      <article class="step rv"><h3>Listing &amp; Content</h3><p>Photos, videos and product pages that convert visitors into buyers.</p></article>
+      <article class="step rv d1"><h3>Ads &amp; Traffic</h3><p>How to reach customers — a practical social media and ads system, shown on real dashboards.</p></article>
+      <article class="step rv d2"><h3>Orders &amp; Shipping</h3><p>The full operations flow — from the order coming in to packing, labels and delivery.</p></article>
+      <article class="step rv d3"><h3>Final Sale &amp; Scale</h3><p>Repeat customers, tracking your numbers, and taking the business to the next level.</p></article>
+    </div>
+    <p class="road-end rv">Sourcing → Branding → Store → Ads → Sale. The whole chain, in one place.</p>
+  </div>
+</section>
+
+<!-- LIVE SHOW -->
+<section>
+  <div class="wrap split">
+    <div class="rv">
+      <div class="eyebrow">Shown live</div>
+      <h2 style="font-size:clamp(30px,4.4vw,52px)">A <em>real</em> business, on screen.</h2>
+      <p class="lede" style="margin:18px 0 26px">Less theory, more live screen. In the workshop you'll see all of this yourself:</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>A full walkthrough of our live e-commerce website</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Sales, orders and ads dashboards</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>The real process — from sourcing to packing</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Live Q&amp;A — ask whatever you want</li>
+      </ul>
+    </div>
+    <div class="browser rv d2" id="browser">
+      <div class="browser-bar"><i></i><i></i><i></i><span class="url">live dashboard will be shown in the workshop</span></div>
+      <div class="browser-body">
+        <div class="dash-title"><span>Sales Dashboard</span><b>Live</b></div>
+        <div class="dash-hero">₹5 Crore+<small>1 year of e-commerce sales</small></div>
+        <div class="bars" aria-hidden="true">
+          <i style="height:14%"></i><i style="height:22%"></i><i style="height:19%"></i><i style="height:31%"></i><i style="height:38%"></i><i style="height:35%"></i><i style="height:52%"></i><i style="height:61%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:86%"></i><i style="height:100%"></i>
+        </div>
+        <div class="bars-cap"><span>Month 1</span><span>Month 12</span></div>
+      </div>
+      <div class="browser-note">Illustration only — the real dashboards will open live in the workshop.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section style="background:var(--ink-2);border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head center rv"><div class="eyebrow">Who it's for</div><h2>This workshop is for <em>you</em> if…</h2></div>
+    <div class="who-grid">
+      <div class="who rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><h3>You're a beginner</h3><p>You've never sold anything and just need a starting point. Everything here begins from zero.</p></div>
+      <div class="who rv d1"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 9l9-6 9 6v11H3z"/><path d="M9 20v-6h6v6"/></svg><h3>You own a business</h3><p>You run an offline shop and want to take it online and grow your sales.</p></div>
+      <div class="who rv d2"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg><h3>You have a job</h3><p>You want to build a second income stream alongside your job.</p></div>
+      <div class="who rv d3"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l3 7 7 .6-5.3 4.7 1.6 7.2L12 17.8 5.7 21.5l1.6-7.2L2 9.6 9 9z"/></svg><h3>You're a student</h3><p>You want to learn a real skill and start a business while studying.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT -->
+<section class="gift" id="gift">
+  <div class="wrap gift-grid">
+    <div class="gift-img rv">
+      <img src="assets/prod-black.jpg" alt="Optykart premium AI Blue-Cut frame" loading="lazy">
+      <div class="gift-badge"><small>Worth</small><b>₹100</b><small>Free</small></div>
+    </div>
+    <div class="rv d2">
+      <div class="eyebrow">Enrollment gift</div>
+      <h2>Enroll today and get a <em>premium AI Blue-Cut frame</em> absolutely free.</h2>
+      <ul>
+        <li>Optykart's premium AI Blue-Cut frame — worth ₹100</li>
+        <li>Gives your eyes relief from laptop and mobile blue light</li>
+        <li>Comes in Optykart's luxury gold-and-black packaging</li>
+      </ul>
+      <a href="#enroll" class="btn btn-gold" data-enroll>Enroll &amp; Claim Free Frame</a>
+      <small class="fine">Gift is for workshop participants who complete enrollment. Collection details will be shared after registration.</small>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR -->
+<section id="sponsor">
+  <div class="wrap">
+    <div class="sec-head center rv"><div class="eyebrow">Official sponsor</div><h2>Presented with <em>Optykart</em></h2></div>
+    <div class="sponsor-card rv">
+      <div class="sp-visual">
+        <span class="sp-tag">Sponsor</span>
+        <div class="sp-logo"><img src="assets/logo.png" alt="Optykart logo"><div><b>OPTYKART</b><span>Pvt. Ltd.</span></div></div>
+      </div>
+      <div class="sp-body">
+        <h2>Premium eyewear, from <em>Nagpur</em> to all of India.</h2>
+        <p class="lede">Optykart is a premium eyewear brand — sunglasses, eyeglasses, computer glasses and kids' frames, delivered in luxury gold-and-black packaging. They sponsor this workshop, and your free enrollment gift comes from them.</p>
+        <div class="sp-cats">
+          <figure><img src="assets/cat-sunglasses.jpg" alt="Sunglasses" loading="lazy"><figcaption>Sunglasses</figcaption></figure>
+          <figure><img src="assets/cat-eyeglasses.jpg" alt="Eyeglasses" loading="lazy"><figcaption>Eyeglasses</figcaption></figure>
+          <figure><img src="assets/cat-computer.jpg" alt="Computer glasses" loading="lazy"><figcaption>Computer</figcaption></figure>
+          <figure><img src="assets/cat-kids.jpg" alt="Kids eyewear" loading="lazy"><figcaption>Kids</figcaption></figure>
+        </div>
+        <div class="sp-facts">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Uday Nagar, Manewada Road, Nagpur</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>+91 76660 70946</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>officialoptykart@gmail.com</span>
+        </div>
+        <a class="btn btn-line" href="https://wa.me/917666070946?text=Hi%20Optykart%2C%20I%27d%20like%20to%20know%20more%20about%20your%20eyewear" target="_blank" rel="noopener">Chat with Optykart on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section style="background:var(--ink-2);border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head center rv"><div class="eyebrow">Format</div><h2>Join the way that <em>suits</em> you.</h2></div>
+    <div class="format-grid">
+      <div class="fmt rv"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg><h3>Online</h3><p>Join live from home. Live website and dashboards on screen, with a chance to ask your questions.</p></div>
+      <div class="fmt rv d1"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg><h3>Offline</h3><p>Learn in person at the venue, meet the team and collect your Optykart gift on the spot.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE / HOW TO ENROLL -->
+<section class="register" id="enroll">
+  <div class="wrap reg-grid">
+    <div class="rv">
+      <div class="eyebrow">Enrollment</div>
+      <h2>See you on Sunday — <em>lock in your seat.</em></h2>
+      <p class="lede" style="margin-top:18px">Enrolling takes less than a minute. Here's how it works:</p>
+      <ul class="steps-mini">
+        <li>Click <b>&nbsp;Enroll Now&nbsp;</b> and fill in your details.</li>
+        <li>Pay <b>&nbsp;₹199&nbsp;</b> by scanning the QR code with any UPI app.</li>
+        <li>Send the payment screenshot on WhatsApp to confirm your seat.</li>
+      </ul>
+    </div>
+    <div class="price-card rv d2">
+      <div class="lbl">Workshop Pass</div>
+      <div class="amt"><small>₹</small>199</div>
+      <p class="sub">One-time enrollment · Sunday, 27 September</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>3-hour live e-commerce workshop</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Sourcing to selling — the complete system</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Live website &amp; dashboards walkthrough</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Free Optykart premium AI Blue-Cut frame</li>
+      </ul>
+      <a href="#enroll" class="btn btn-gold" data-enroll>Enroll Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center rv"><div class="eyebrow">FAQ</div><h2>Your <em>questions</em>, answered</h2></div>
+    <div class="faq rv">
+      <details><summary>Can I really learn this from absolute zero?</summary><p>Yes. The workshop starts from product sourcing and goes all the way to the final sale. No prior experience or technical knowledge is needed.</p></details>
+      <details><summary>How long is the workshop?</summary><p>It's a 3-hour live workshop on Sunday, 27 September. The exact timing will be shared on WhatsApp after you enroll.</p></details>
+      <details><summary>How do I pay and confirm my seat?</summary><p>Click Enroll Now, fill in your details, and a QR code will appear. Pay ₹199 with any UPI app, then send the payment screenshot on WhatsApp to the number shown. Your seat is confirmed once we verify it.</p></details>
+      <details><summary>What's the difference between online and offline?</summary><p>The content is the same. Online, you join live through your screen; offline, you attend in person at the venue. You choose your mode while enrolling.</p></details>
+      <details><summary>How do I get the free Blue-Cut frame?</summary><p>Every participant who completes enrollment gets a premium AI Blue-Cut frame (worth ₹100) from Optykart. Collection details will be shared after registration.</p></details>
+      <details><summary>Will you really show the live website and dashboards?</summary><p>Yes. This is a no-script workshop about real execution. We'll open our live website and dashboards on screen and show how it was all done.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" style="justify-content:center">Sunday · 27 September</div>
+      <h2>One day, 3 hours — and your <em>e-commerce roadmap</em> is ready.</h2>
+      <p class="lede">From sourcing to selling, starting at zero. With a free Optykart Blue-Cut frame.</p>
+      <a href="#enroll" class="btn btn-gold" data-enroll>Enroll Now — ₹199</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><div><div class="brand-mark">SMARTWEB <span>360</span></div><span class="brand-sub">E-Commerce Academy</span></div></div>
+    <div class="presented"><span>Sponsored by</span><img src="assets/logo.png" alt="Optykart"><b style="font-family:'Bodoni Moda',serif;letter-spacing:.1em;color:var(--text-hi)">OPTYKART</b></div>
+    <div>© 2026 SMARTWEB 360. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div><b>Live Workshop · Sun, 27 Sept · ₹199</b>Free Optykart Blue-Cut frame</div>
+  <a href="#enroll" class="btn btn-gold" data-enroll>Enroll</a>
+</div>
+
+<!-- ENROLL MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" type="button" id="mClose" aria-label="Close">×</button>
+
+    <!-- step 1: form -->
+    <div id="stepForm">
+      <div class="m-head"><img src="assets/logo.png" alt=""><span>SMARTWEB 360 · Workshop</span></div>
+      <h3 id="mTitle">Enroll in the workshop</h3>
+      <p class="sub">Sunday, 27 September · 3 hours · Live</p>
+      <form id="regForm" novalidate>
+        <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" placeholder="Your full name"><div class="err">Please enter your name.</div></div>
+        <div class="field"><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number"><div class="err">Please enter a valid 10-digit number.</div></div>
+        <div class="field"><label for="city">City</label><input id="city" name="city" autocomplete="address-level2" placeholder="e.g. Nagpur"><div class="err">Please enter your city.</div></div>
+        <div class="field"><label>How will you join?</label>
+          <div class="mode">
+            <div><input type="radio" name="mode" id="m-on" value="Online" checked><label for="m-on">ONLINE</label></div>
+            <div><input type="radio" name="mode" id="m-off" value="Offline"><label for="m-off">OFFLINE</label></div>
+          </div>
+        </div>
+        <button class="btn btn-gold" type="submit">Continue to Payment</button>
+        <p class="m-fee">Enrollment fee ₹199 · includes a free Optykart Blue-Cut frame</p>
+      </form>
+    </div>
+
+    <!-- step 2: payment -->
+    <div class="pay" id="stepPay">
+      <div class="m-head"><img src="assets/logo.png" alt=""><span>Step 2 of 2 · Payment</span></div>
+      <h3>Almost there, <em id="payName">friend</em>!</h3>
+      <p class="sub">Scan the QR with any UPI app to complete your enrollment.</p>
+      <div class="pay-amount"><span>Amount to pay</span><b>₹199</b></div>
+      <div class="qr"><img src="assets/payment-qr.jpg" alt="UPI payment QR code — Rohit Parashar"></div>
+      <p class="upi-id">UPI ID: <b>17321214a-1@okicici</b></p>
+      <div class="note"><b>Note:</b> Please pay <b>₹199</b> using this QR, then <b>send the payment screenshot</b> to <b id="waNum">our WhatsApp number</b> to confirm your seat.</div>
+      <a class="btn btn-gold btn-upi" id="upiBtn" href="#">Pay ₹199 with UPI app</a>
+      <a class="btn btn-gold" id="waBtn" href="#" target="_blank" rel="noopener" style="display:none">Send Screenshot on WhatsApp</a>
+      <p class="small">Your seat is confirmed after we verify the payment.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ CONFIG ============
+   WhatsApp number that receives the payment screenshot.
+   Country code + number, digits only. Example: "919876543210" */
+const PAY_WHATSAPP = "";
+const PAY_UPI_ID = "17321214a-1@okicici", PAY_NAME = "Rohit Parashar", PAY_AMOUNT = 199;
+/* Workshop start time (IST) for the countdown. Update once the timing is final. */
+const WORKSHOP_START = new Date("2026-09-27T10:00:00+05:30");
+/* ================================ */
+
+/* ticker */
+const words=["Product Research","Sourcing","Branding","Packaging","Website Setup","Product Listing","Social Media Ads","Orders","Shipping","Final Sale","Scale"];
+document.getElementById("ticker").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+/* progress + sticky */
+const bar=document.getElementById("progress"),sticky=document.getElementById("sticky");
+addEventListener("scroll",()=>{
+  const h=document.documentElement;
+  bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
+  sticky.classList.toggle("show",scrollY>600);
+},{passive:true});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll(".rv,#browser").forEach(el=>io.observe(el));
+
+/* countdown */
+const p2=n=>String(n).padStart(2,"0");
+function tick(){
+  const s=Math.max(0,Math.floor((WORKSHOP_START-Date.now())/1000));
+  cd.textContent=p2(Math.floor(s/86400));ch.textContent=p2(Math.floor(s%86400/3600));
+  cm.textContent=p2(Math.floor(s%3600/60));cs.textContent=p2(s%60);
+}
+tick();setInterval(tick,1000);
+
+/* modal */
+const modal=document.getElementById("modal"),stepForm=document.getElementById("stepForm"),stepPay=document.getElementById("stepPay"),form=document.getElementById("regForm");
+let lastFocus=null;
+function openModal(){
+  lastFocus=document.activeElement;
+  stepForm.style.display="";stepPay.classList.remove("show");
+  modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.classList.add("lock");
+  setTimeout(()=>form.name.focus(),50);
+}
+function closeModal(){
+  modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.classList.remove("lock");
+  if(lastFocus)lastFocus.focus();
+}
+document.querySelectorAll("[data-enroll]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();openModal()}));
+document.getElementById("mClose").addEventListener("click",closeModal);
+modal.addEventListener("mousedown",e=>{if(e.target===modal)closeModal()});
+addEventListener("keydown",e=>{
+  if(!modal.classList.contains("open"))return;
+  if(e.key==="Escape")closeModal();
+  if(e.key==="Tab"){ /* keep focus inside the dialog */
+    const f=[...modal.querySelectorAll("button,a[href],input")].filter(x=>x.offsetParent!==null&&!x.disabled);
+    if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
+
+/* form -> payment */
+function setBad(id,bad){document.getElementById(id).closest(".field").classList.toggle("bad",bad)}
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=form.name.value.trim(),phone=form.phone.value.replace(/\D/g,"").replace(/^91(?=\d{10}$)/,""),city=form.city.value.trim(),mode=form.mode.value;
+  const ok={name:name.length>1,phone:/^[6-9]\d{9}$/.test(phone),city:city.length>1};
+  Object.keys(ok).forEach(k=>setBad(k,!ok[k]));
+  if(!Object.values(ok).every(Boolean))return;
+  try{
+    const list=JSON.parse(localStorage.getItem("sw360_registrations")||"[]");
+    list.push({name,phone,city,mode,amount:PAY_AMOUNT,at:new Date().toISOString()});
+    localStorage.setItem("sw360_registrations",JSON.stringify(list));
+  }catch(_){}
+  document.getElementById("payName").textContent=name.split(" ")[0];
+  document.getElementById("upiBtn").href=`upi://pay?pa=${PAY_UPI_ID}&pn=${encodeURIComponent(PAY_NAME)}&am=${PAY_AMOUNT}&cu=INR&tn=${encodeURIComponent("SMARTWEB 360 Workshop")}`;
+  if(PAY_WHATSAPP){
+    const msg=`Hi SMARTWEB 360! I've paid ₹${PAY_AMOUNT} for the Sunday 27 Sept E-Commerce Workshop. Screenshot attached.\nName: ${name}\nMobile: ${phone}\nCity: ${city}\nMode: ${mode}`;
+    const w=document.getElementById("waBtn");w.href=`https://wa.me/${PAY_WHATSAPP}?text=${encodeURIComponent(msg)}`;w.style.display="inline-flex";
+    document.getElementById("waNum").textContent="+"+PAY_WHATSAPP.replace(/^(\d{2})(\d{5})(\d{5})$/,"$1 $2 $3");
+  }
+  stepForm.style.display="none";stepPay.classList.add("show");
+  modal.querySelector(".dialog").scrollTop=0;
+});
+</script>
+</body>
+</html>
